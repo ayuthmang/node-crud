@@ -2,7 +2,6 @@
 
 A simple crud app using node.js and knex.js.
 
-
 ## Start a project
 
 Install dependencies
@@ -22,3 +21,8 @@ Seeding data
 ```js
 npx knex seed:run
 ```
+
+## Todos
+
+- [ ] Refactor the code.
+- [ ] Write tests.
