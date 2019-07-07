@@ -1,0 +1,33 @@
+extends ../layouts/layout
+
+block content
+  table
+    thead
+      th Id
+      th Name
+      th Price
+      th Actions
+    tbody
+      for product in products
+        tr
+          td= product.id
+          td= product.name
+          td= product.price
+          td
+            a(href=`/products/edit/${product.id}`) Edit
+            |
+            |
+            a(href='#' data-id=product.id) Delete
+
+  script.
+    document.addEventListener("DOMContentLoaded", function() {
+      document.querySelectorAll( 'table > tbody > tr > td  > a' ).forEach(function(element) {
+        element.onclick = function () {
+          const productId = element.getAttribute('data-id');
+          axios.delete(`/api/products/${productId}`).then(function(res) {
+            console.log(res);
+            window.location.reload();
+          })
+        };
+      });
+    });

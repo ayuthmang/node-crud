@@ -1,0 +1,6 @@
+{
+  "nodemonConfig": {
+    "ignore": ["**.pug"],
+    "delay": "2500"
+  }
+}

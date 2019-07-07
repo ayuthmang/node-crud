@@ -1,0 +1,11 @@
+extends ../layouts/layout
+
+block content
+  form(action="/api/products", method="post")
+    div.form-group
+      label(for='name') Name:
+      input#name.form-control(type='text', placeholder='Product name' name='name')
+    div.form-group
+      label(for='price') Price:
+      input#price.form-control(type='text', placeholder='Product price' name='price')
+    button.btn.btn-primary(type='submit') Create

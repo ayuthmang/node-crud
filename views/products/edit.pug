@@ -1,0 +1,27 @@
+extends ../layouts/layout
+
+block content
+  div
+    div.form-group
+      label(for='name') Name:
+      input#name.form-control(type='text', placeholder='Product name' name='name' value=product.name)
+    div.form-group
+      label(for='price') Price:
+      input#price.form-control(type='text', placeholder='Product price' name='price' value=product.price)
+    button#btn-submit.btn.btn-primary() Edit
+    a(href="/products") Back
+
+  script.
+    document.addEventListener("DOMContentLoaded", function() {
+      document.getElementById('btn-submit').onclick = function () {
+        let payload = {
+          id: #{product.id},
+          name: document.getElementById('name').value,
+          price: document.getElementById('price').value
+        }
+        axios.patch("/api/products/#{product.id}", payload).then(function(res) {
+          console.log(res);
+          window.location.reload()
+        });
+      };
+    });
