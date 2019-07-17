@@ -26,3 +26,4 @@ npx knex seed:run
 
 - [ ] Refactor the code.
 - [ ] Write tests.
+- [ ] Setup lint, babel.
